@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "title": "Skills Framework",
+    "subtitle": "A shared language for growing capability across teams.",
+    "ctaText": "Explore the framework",
+    "ctaLink": "#pillars"
+  },
+  "highlights": [
+    {
+      "label": "Roles",
+      "value": "12",
+      "description": "from individual contributors to leadership"
+    },
+    {
+      "label": "Skill Areas",
+      "value": "48",
+      "description": "covering craft, leadership, and business impact"
+    },
+    {
+      "label": "Competency Levels",
+      "value": "5",
+      "description": "mapped to clear expectations"
+    }
+  ],
+  "pillars": [
+    {
+      "name": "Craft Excellence",
+      "summary": "Deep expertise in your discipline, grounded in best practices and continuous improvement.",
+      "skills": [
+        "Applies design-thinking to uncover user needs",
+        "Delivers maintainable, well-tested code",
+        "Evaluates experiments with actionable insights"
+      ]
+    },
+    {
+      "name": "Collaboration",
+      "summary": "Building strong partnerships, communicating clearly, and delivering outcomes together.",
+      "skills": [
+        "Facilitates inclusive discussions",
+        "Communicates trade-offs across stakeholders",
+        "Mentors peers through feedback and pairing"
+      ]
+    },
+    {
+      "name": "Strategy & Impact",
+      "summary": "Understanding the business context and aligning work to measurable outcomes.",
+      "skills": [
+        "Links roadmaps to company objectives",
+        "Prioritises with data and customer insight",
+        "Shows impact through clear storytelling"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "name": "Early Career",
+      "description": "Build confidence in core skills, take on scoped projects, and learn from mentorship.",
+      "focus": [
+        "Pairing with experienced teammates",
+        "Strengthening craft fundamentals",
+        "Delivering iterative value"
+      ]
+    },
+    {
+      "name": "Mid Career",
+      "description": "Own larger problem spaces, lead cross-functional delivery, and expand influence.",
+      "focus": [
+        "Leading project squads",
+        "Driving discovery and validation",
+        "Sharing knowledge within the guild"
+      ]
+    },
+    {
+      "name": "Senior & Leadership",
+      "description": "Shape strategy, nurture talent, and steward craft health across the organisation.",
+      "focus": [
+        "Setting vision for capability growth",
+        "Coaching emerging leaders",
+        "Measuring and communicating impact"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Bring the framework to your team",
+    "body": "Download the playbook to run capability reviews, coaching conversations, and growth planning sessions.",
+    "primary": {
+      "label": "Get the playbook",
+      "link": "https://example.com/playbook"
+    },
+    "secondary": {
+      "label": "Talk to us",
+      "link": "mailto:hello@example.com"
+    }
+  }
+}
