@@ -1,1 +1,456 @@
-<p>hello world!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --primary: #4338ca;
+      --primary-dark: #312e81;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.18), transparent 45%),
+        #0f172a;
+      color: #fff;
+      padding: 4rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: rgba(79, 70, 229, 0.35);
+      filter: blur(120px);
+      top: -120px;
+      right: -120px;
+      z-index: 0;
+    }
+
+    .max-width {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 560px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.64);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-actions a {
+      text-decoration: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .hero-actions a.primary {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+    }
+
+    .hero-actions a.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(79, 70, 229, 0.45);
+    }
+
+    .hero-actions a.secondary {
+      color: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+    }
+
+    main {
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: -3.5rem;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      text-align: center;
+    }
+
+    .highlight-card h3 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: var(--primary-dark);
+    }
+
+    .highlight-card p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      margin: 4rem 0;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    section > p {
+      max-width: 640px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .pillar-grid, .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-list {
+      margin: 1.1rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .skill-list li {
+      background: rgba(99, 102, 241, 0.08);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.92rem;
+      color: var(--primary-dark);
+    }
+
+    .focus-list {
+      margin: 1.2rem 0 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.55rem;
+      color: var(--muted);
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(79, 70, 229, 0.95));
+      color: #fff;
+      border-radius: 26px;
+      padding: 3rem;
+      display: grid;
+      gap: 1.5rem;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(79, 70, 229, 0.35);
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cta-actions a {
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 150ms ease;
+    }
+
+    .cta-actions a.primary {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    .cta-actions a.primary:hover,
+    .cta-actions a.secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .cta-actions a.secondary {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .loading, .error {
+      text-align: center;
+      padding: 5rem 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding: 3.5rem 1.2rem 4rem;
+      }
+      .hero-actions a {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .cta-banner {
+        padding: 2.4rem 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="max-width hero" id="hero"></div>
+  </header>
+  <main class="max-width" id="content">
+    <div class="highlights" id="highlights"></div>
+
+    <section id="pillars">
+      <h2>Framework pillars</h2>
+      <p>The framework is anchored by three pillars that help teams balance craft, collaboration, and strategic impact.</p>
+      <div class="pillar-grid" id="pillar-grid"></div>
+    </section>
+
+    <section id="journeys">
+      <h2>Growth journeys</h2>
+      <p>Each career stage has a tailored focus to guide learning conversations, set expectations, and celebrate progress.</p>
+      <div class="journey-grid" id="journey-grid"></div>
+    </section>
+
+    <section id="cta-section">
+      <div class="cta-banner" id="cta"></div>
+    </section>
+  </main>
+  <footer>
+    © <span id="year"></span> Skills Framework. Built for teams who love to learn together.
+  </footer>
+
+  <template id="loading-template">
+    <div class="loading">Loading the skills framework…</div>
+  </template>
+
+  <template id="error-template">
+    <div class="error">We couldn’t load the skills framework right now. Please refresh and try again.</div>
+  </template>
+
+  <script>
+    const heroEl = document.getElementById('hero');
+    const contentEl = document.getElementById('content');
+    const yearEl = document.getElementById('year');
+    const loadingTemplate = document.getElementById('loading-template');
+    const errorTemplate = document.getElementById('error-template');
+
+    let highlightEl = document.getElementById('highlights');
+    let pillarEl = document.getElementById('pillar-grid');
+    let journeyEl = document.getElementById('journey-grid');
+    let ctaEl = document.getElementById('cta');
+
+    yearEl.textContent = new Date().getFullYear();
+
+    function querySections() {
+      highlightEl = document.getElementById('highlights');
+      pillarEl = document.getElementById('pillar-grid');
+      journeyEl = document.getElementById('journey-grid');
+      ctaEl = document.getElementById('cta');
+    }
+
+    function showState(target, template) {
+      if (!target) return;
+      target.innerHTML = '';
+      target.appendChild(template.content.cloneNode(true));
+    }
+
+    function renderHero(hero) {
+      heroEl.innerHTML = `
+        <p class="eyebrow">Capabilities that spark high-performing teams</p>
+        <h1>${hero.title}</h1>
+        <p>${hero.subtitle}</p>
+        <div class="hero-actions">
+          <a class="primary" href="${hero.ctaLink}">${hero.ctaText}</a>
+          <a class="secondary" href="#journeys">See growth journeys</a>
+        </div>
+      `;
+    }
+
+    function renderHighlights(highlights) {
+      highlightEl.innerHTML = '';
+      highlights.forEach(({ label, value, description }) => {
+        const card = document.createElement('article');
+        card.className = 'highlight-card';
+        card.innerHTML = `
+          <h3>${value}</h3>
+          <strong>${label}</strong>
+          <p>${description}</p>
+        `;
+        highlightEl.appendChild(card);
+      });
+    }
+
+    function renderPillars(pillars) {
+      pillarEl.innerHTML = '';
+      pillars.forEach(({ name, summary, skills }) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        const skillItems = skills.map(skill => `<li>${skill}</li>`).join('');
+        card.innerHTML = `
+          <h3>${name}</h3>
+          <p>${summary}</p>
+          <ul class="skill-list">${skillItems}</ul>
+        `;
+        pillarEl.appendChild(card);
+      });
+    }
+
+    function renderJourneys(journeys) {
+      journeyEl.innerHTML = '';
+      journeys.forEach(({ name, description, focus }) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        const focusItems = focus.map(item => `<li>${item}</li>`).join('');
+        card.innerHTML = `
+          <h3>${name}</h3>
+          <p>${description}</p>
+          <ul class="focus-list">${focusItems}</ul>
+        `;
+        journeyEl.appendChild(card);
+      });
+    }
+
+    function renderCta(cta) {
+      ctaEl.innerHTML = `
+        <h2>${cta.title}</h2>
+        <p>${cta.body}</p>
+        <div class="cta-actions">
+          <a class="primary" href="${cta.primary.link}" target="_blank" rel="noreferrer">${cta.primary.label}</a>
+          <a class="secondary" href="${cta.secondary.link}">${cta.secondary.label}</a>
+        </div>
+      `;
+    }
+
+    async function init() {
+      showState(contentEl, loadingTemplate);
+      try {
+        const response = await fetch('skills.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        contentEl.innerHTML = `
+          <div class="highlights" id="highlights"></div>
+          <section id="pillars">
+            <h2>Framework pillars</h2>
+            <p>The framework is anchored by three pillars that help teams balance craft, collaboration, and strategic impact.</p>
+            <div class="pillar-grid" id="pillar-grid"></div>
+          </section>
+          <section id="journeys">
+            <h2>Growth journeys</h2>
+            <p>Each career stage has a tailored focus to guide learning conversations, set expectations, and celebrate progress.</p>
+            <div class="journey-grid" id="journey-grid"></div>
+          </section>
+          <section id="cta-section">
+            <div class="cta-banner" id="cta"></div>
+          </section>
+        `;
+        querySections();
+        renderHighlights(data.highlights);
+        renderPillars(data.pillars);
+        renderJourneys(data.journeys);
+        renderCta(data.cta);
+        renderHero(data.hero);
+      } catch (error) {
+        console.error(error);
+        showState(contentEl, errorTemplate);
+        heroEl.innerHTML = '<h1>Skills Framework</h1><p>We\'ll be right back with the full experience.</p>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
